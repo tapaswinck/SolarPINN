@@ -9,5 +9,5 @@ description = "Physics-Informed Neural Networks for Solar Physics"
 readme = "README.md"
 requires-python = ">=3.11"
 
-[tool.setuptools]
-packages = ["solarpinn"]
+[tool.setuptools.packages.find]
+include = ["solarpinn*"]
