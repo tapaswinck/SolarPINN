@@ -20,6 +20,18 @@ from .initialization import (
 
 )
 
+from .linear import Linear
+
+from .losses import (
+    MSELoss,
+    L1Loss,
+    SmoothL1Loss,
+    HuberLoss,
+    RMSELoss,
+    RelativeL2Loss,
+)
+
+
 __all__ = [
     "Parameter",
     "Module",
@@ -35,6 +47,13 @@ __all__ = [
     "xavier_normal",
     "xavier_uniform",
     "kaiming_normal",
-    "kaiming_uniform"
+    "kaiming_uniform",
+    "Linear",
+    "MSELoss",
+    "L1Loss",
+    "SmoothL1Loss",
+    "HuberLoss",
+    "RMSELoss",
+    "RelativeL2Loss"
 ]
 
