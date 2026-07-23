@@ -7,8 +7,16 @@ from .boundary import (
         BoundaryCondition,
         DirichletBoundary,
         NeumannBoundary,
-        RobinBoundary
+        RobinBoundary,
+        PeriodicBoundary
         )
+
+from .initial import(
+        InitialCondition,
+        ValueInitialCondition,
+        DerivativeInitialCondition
+        )
+
 
 
 __all__ = [
@@ -16,7 +24,12 @@ __all__ = [
         "BoundaryCondition",
         "DirichletCondiiton",
         "NeumannBoundary",
-        "RobinBoundary"
+        "RobinBoundary",
+        "PeriodicBoundary",
+        "InitialCondition",
+        "ValueInitialCondition",
+        "DerivativeInitialCondition"
+
         ]
 
 
