@@ -19,7 +19,7 @@ def gradient(
     Parameters
     ----------
     output:
-        Scalar tensor.
+        Scalar output tensor.
 
     inputs:
         Tensor with respect to which the gradient is computed.
@@ -33,12 +33,16 @@ def gradient(
     Returns
     -------
     torch.Tensor
-        Gradient having the same shape as ``inputs``.
+        Gradient with the same shape as ``inputs``.
     """
 
     assert output.numel() == 1, (
         "gradient() expects a scalar output."
     )
+
+    # If the output is already a constant, its gradient is zero.
+    if not output.requires_grad:
+        return torch.zeros_like(inputs)
 
     grad = torch.autograd.grad(
         outputs=output,
@@ -46,11 +50,10 @@ def gradient(
         grad_outputs=torch.ones_like(output),
         create_graph=create_graph,
         retain_graph=retain_graph,
-        allow_unused=False,
+        allow_unused=True,
     )[0]
 
-    assert grad is not None
+    if grad is None:
+        return torch.zeros_like(inputs)
 
     return grad
-
-
